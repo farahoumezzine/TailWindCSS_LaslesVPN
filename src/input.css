@@ -1,1 +1,17 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
+html{
+    scroll-behavior: smooth;
+    font-family: Roboto Slab", serif;
+}
 @import "tailwindcss";
+@theme{
+    --color-primary: #F53838
+    --color-secondary: rgba(245,56,56,0.35)
+    --color-primary-text: #4F5665
+    --color-heading-text: #0B132A;
+    --font-primary: "Roboto Slab", serif;
+    --color-pink: #F49BAB,
+
+    
+}

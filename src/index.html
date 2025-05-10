@@ -5,10 +5,486 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="./output.css" rel="stylesheet">
   <title>Lasles VPN project using Tailwind CSS</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+   <!-- AOS CSS -->
+   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    
 </head>
 <body>
-  <h1 class="text-3xl font-bold underline text-red-50">
-    Hello world!
-  </h1>
+    <header class="bg-white shadow-md fixed top-0 left-0 right-0 z-50">
+        <nav
+          class="max-w-[1440px] container mx-auto px-4 py-4 flex items-center justify-between"
+        >
+          <!-- Logo -->
+          <div class="text-2xl font-bold flex items-center gap-2">
+              <img src="./images/logo.png" class="h-8"> 
+              <span class="text-purple-900">LaslesVPN</span>
+            </div>
+                <!-- Menu Items -->
+        <div class="hidden md:flex space-x-8">
+            <a href="#home" class="text-gray-600 hover:text-gray-900">About</a>
+            <a href="#features" class="text-gray-600 hover:text-gray-900">Features</a>
+            <a href="#pricing" class="text-gray-600 hover:text-gray-900">Pricing</a>
+            <a href="#testimonials" class="text-gray-600 hover:text-gray-900">Testimonial</a>
+            <a href="#contact" class="text-gray-600 hover:text-gray-900">Contact</a>
+          </div>
+  
+            <!-- Auth Buttons -->
+        <div class="space-x-4">
+            <a href="./signin.html" class="text-gray-600 hover:text-gray-900">Sign In</a>
+            <a href="./signup.html" class="bg-purple-900 text-white px-4 py-2 rounded-full hover:bg-purple-300">
+              Sign Up
+            </a>
+          </div>
+
+          </nav>
+          </header>
+        
+        
+    <!-- hero section  -->
+    <section class="max-w-[1440px] container mx-auto px-4 py-24 flex flex-col md:flex-row items-center gap-12" id="home">
+        <!-- Left Content -->
+        <div class="md:w-1/2 mb-8 md:mb-0 space-y-8" data-aos="fade-right">
+          <h1 class="lg:text-6xl md:text-5xl text-4xl font-bold leading-tight text-purple-950 font-primary data-aos="fade-right">
+            Secure Your Online <br class="lg:block hidden">
+            World with Lasles VPN
+          </h1>
+          <p class="text-pink text-lg leading-relaxed max-w-xl">
+            Experience fast, secure, and private internet browsing with our global network of servers. Protect your data today!
+
+        </p>
+          <div class="pt-4">
+            <a href="./signin.html" class="bg-purple-900 text-white px-12 py-4 rounded-lg hover:bg-purple-300 shadow-lg hover:shadow-xl transition duration-300 text-lg font-medium hover:-translate-y-1 inline-block">
+                Get Started
+              </a>
+          </div>
+        </div>
+            <!-- Right Content -->
+        <div class="md:w-1/2" data-aos="fade-left">
+        <img src="./images/right.png" alt="VPN illustration" class="w-full">
+         </div>
+        </section>
+    
+
+        <!-- Statistics Section -->
+        <section class="max-w-[1440px] container mx-auto px-4 py-16" id="features">
+            <div class="bg-white rounded-2xl shadow-xl p-8 md:p-12" data-aos="fade-up">
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+                <!-- Users Stats -->
+                <div class="flex items-center gap-4 p-6 bg-gray-50 rounded-lg hover:shadow-md transition-shadow">
+                  <div class="p-4 bg-blue-100 rounded-full">
+                    <img src="./images/user.png" alt="Users Icon" class="w-8 h-8">
+                  </div>
+                  <div>
+                    <h3 class="text-3xl font-bold text-gray-900">50+</h3>
+                    <p class="text-gray-600 text-sm">Active Users</p>
+                  </div>
+                </div>
+          
+                <!-- Locations Stats -->
+                <div class="flex items-center gap-4 p-6 bg-gray-50 rounded-lg hover:shadow-md transition-shadow">
+                  <div class="p-4 bg-blue-100 rounded-full">
+                    <img src="./images/location.png" alt="Locations Icon" class="w-8 h-8">
+                  </div>
+                  <div>
+                    <h3 class="text-3xl font-bold text-gray-900">10+</h3>
+                    <p class="text-gray-600 text-sm">Global Locations</p>
+                  </div>
+                </div>
+          
+                <!-- Servers Stats -->
+                <div class="flex items-center gap-4 p-6 bg-gray-50 rounded-lg hover:shadow-md transition-shadow">
+                  <div class="p-4 bg-blue-100 rounded-full">
+                    <img src="./images/server.png" alt="Servers Icon" class="w-8 h-8">
+                  </div>
+                  <div>
+                    <h3 class="text-3xl font-bold text-gray-900">60+</h3>
+                    <p class="text-gray-600 text-sm">Secure Servers</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Features Section -->
+          <section class="max-w-[1440px] container mx-auto px-4 py-20" id="features">
+            <div class="flex flex-col md:flex-row items-center gap-12 md:gap-16">
+               <!-- Left Content (Illustration) -->
+                <div class="md:w-1/2" data-aos="fade-right">
+                <img src="./images/done.png" alt="VPN Features Illustration" class="w-full max-w-md mx-auto md:max-w-lg h-auto rounded-xl shadow-lg object-contain">
+                </div>
+          
+              <!-- Right Content -->
+              <div class="md:w-1/2 space-y-6" data-aos="fade-left">
+                <h2 class="text-3xl md:text-4xl font-bold text-purple-900 leading-tight font-primary">
+                  Explore Powerful<br>Features with Lasles VPN
+                </h2>
+                <p class="text-gray-600 text-base md:text-lg leading-relaxed">
+                  Discover a range of features designed to keep you secure, private, and connected, wherever you are.
+                </p>
+          
+                <!-- Features List -->
+                <ul class="space-y-4">
+                  <li class="flex items-center gap-4">
+                    <div class="p-2 rounded-full bg-purple-100">
+                        <svg class="w-5 h-5 text-[var(--color-pink)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                      </svg>
+                    </div>
+                    <span class="text-gray-700 font-medium">Advanced Encryption for Ultimate Security</span>
+                  </li>
+                  <li class="flex items-center gap-4">
+                    <div class="p-2 rounded-full bg-purple-100">
+                        <svg class="w-5 h-5 text-[var(--color-pink)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                      </svg>
+                    </div>
+                    <span class="text-gray-700 font-medium">Access Global Content Seamlessly</span>
+                  </li>
+                  <li class="flex items-center gap-4">
+                    <div class="p-2 rounded-full bg-purple-100">
+                        <svg class="w-5 h-5 text-[var(--color-pink)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                      </svg>
+                    </div>
+                    <span class="text-gray-700 font-medium">Lightning-Fast VPN Speeds</span>
+                  </li>
+                  <li class="flex items-center gap-4">
+                    <div class="p-2 rounded-full bg-purple-100">
+                        <svg class="w-5 h-5 text-[var(--color-pink)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                      </svg>
+                    </div>
+                    <span class="text-gray-700 font-medium">Unlimited Browsing with No Restrictions</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+              <!-- Pricing Section -->
+              <section class="bg-gray-100 py-16" id="pricing" >
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-aos="flip-right">
+                  <h2 class="text-3xl font-bold text-purple-900 mb-4 font-primary">Choose Your Plan</h2>
+                  <p class="text-gray-600 mb-12">Let's choose the package that is best for you and explore it happily with LaslesVPN.</p>
+              
+                  <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                    <!-- Free Plan -->
+                    <div class="bg-white rounded-2xl shadow-lg p-8">
+                      <img src="./images/flash.png" alt="Free Plan" class="mx-auto mb-4 w-16 h-16">
+                      <h3 class="text-xl font-semibold text-gray-800 mb-2">Free Plan</h3>
+                      <ul class="text-gray-600 mb-6 space-y-2">
+                        <li>✔️ Unlimited Bandwidth</li>
+                        <li>✔️ Encrypted Connection</li>
+                        <li>✔️ No Traffic Logs</li>
+                        <li>✔️ Works on All Devices</li>
+                      </ul>
+                      <p class="text-2xl font-bold mb-4">Free</p>
+                      <button class="w-full border border-indigo-500 text-indigo-500 font-semibold py-2 rounded-xl hover:bg-indigo-50 transition">
+                        Select
+                      </button>
+                    </div>
+              
+                    <!-- Standard Plan -->
+                    <div class="bg-white rounded-2xl shadow-2xl p-8 border-2 border-indigo-600 transform scale-105">
+                      <img src="./images/star.png" alt="Standard Plan" class="mx-auto mb-4 w-16 h-16">
+                      <h3 class="text-xl font-semibold text-gray-800 mb-2">Standard Plan</h3>
+                      <ul class="text-gray-600 mb-6 space-y-2">
+                        <li>✔️ Unlimited Bandwidth</li>
+                        <li>✔️ Encrypted Connection</li>
+                        <li>✔️ Yes Traffic Logs</li>
+                        <li>✔️ Connect Any Device</li>
+                      </ul>
+                      <p class="text-2xl font-bold mb-4">$9<span class="text-sm font-medium text-gray-500"> / mo</span></p>
+                      <button class="w-full bg-indigo-600 text-white font-semibold py-2 rounded-xl hover:bg-indigo-700 transition">
+                        Select
+                      </button>
+                    </div>
+              
+                    <!-- Premium Plan -->
+                    <div class="bg-white rounded-2xl shadow-lg p-8">
+                      <img src="./images/fire.png" alt="Premium Plan" class="mx-auto mb-4 w-16 h-16">
+                      <h3 class="text-xl font-semibold text-gray-800 mb-2">Premium Plan</h3>
+                      <ul class="text-gray-600 mb-6 space-y-2">
+                        <li>✔️ Unlimited Bandwidth</li>
+                        <li>✔️ Encrypted Connection</li>
+                        <li>✔️ No Traffic Logs</li>
+                        <li>✔️ Works on All Devices</li>
+                        <li>✔️ Get New Features</li>
+                      </ul>
+                      <p class="text-2xl font-bold mb-4">$12<span class="text-sm font-medium text-gray-500"> / mo</span></p>
+                      <button class="w-full border border-indigo-500 text-indigo-500 font-semibold py-2 rounded-xl hover:bg-indigo-50 transition">
+                        Select
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              
+
+              <!-- Testimonials Section -->
+    <section class="max-w-[1440px] container mx-auto px-4 py-24" id="testimonials" data-aos="zoom-in">
+        <!-- Section Header -->
+        <div class="text-center mb-16" >
+            <h2 class="text-4xl font-bold text-[#450a7d] mb-5 font-primary">
+                Trusted by Thousands of<br>
+                Happy Customer
+            </h2>
+            <p class="text-[#4F5665] max-w-2xl mx-auto">
+                These are the stories of our customers who have joined us with great pleasure when using this crazy feature.
+            </p>
+        </div>
+
+        <!-- Testimonials Slider -->
+        <div class="swiper testimonialSwiper">
+            <div class="swiper-wrapper">
+                <!-- Testimonials will be inserted here by JavaScript -->
+            </div>
+
+            <!-- Navigation Controls -->
+            <div class="flex justify-between items-center mt-12">
+                <!-- Pagination Dots -->
+                <div class="swiper-pagination !relative !bottom-0 !w-auto">
+                    
+                </div>
+                
+                <!-- Navigation Arrows -->
+                <div class="flex sm:!flex lg:!flex xl:!flex gap-4">
+                    <div class="swiper-button-prev !static !w-[60px] !h-[60px] flex items-center justify-center rounded-full border-2 border-[#582080] text-[#230439] hover:bg-purple-200 hover:text-white transition-all after:!content-['']">
+                       <img src="./images/left.png" alt="arrow-left" class="w-6 h-6">
+                    </div>
+                    <div class="swiper-button-next !static !w-[60px] !h-[60px] flex items-center justify-center rounded-full bg-[#582080] text-white hover:opacity-90 transition-all after:!content-['']">
+                        <img src="./images/arrow-right.png" alt="arrow-right" class="w-6 h-6">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+       
+   
+
+  
+
+    <!-- Map Section -->
+    <section class="max-w-[1440px] container mx-auto px-4 py-24" data-aos="zoom-in">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-[#450a7d] mb-5 font-primary">
+                Our Global Community
+            </h2>
+            <p class="text-[#4F5665] max-w-2xl mx-auto">
+                See where our happy users are located around the world
+            </p>
+        </div>
+        
+        <!-- Map Container -->
+        <div class="relative z-0 h-screen">
+            <div id="userMap" class="h-full w-full"></div>
+        </div>
+    </section>
+
+    <section id="contact" class="bg-gray-100 py-20" data-aos="fade-right">
+        <div class="max-w-6xl mx-auto px-6 md:px-12">
+          <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-[#0B132A] mb-4 font-[Roboto Slab]">
+              Contact LaslesVPN Support
+            </h2>
+            <p class="text-[#4F5665] max-w-2xl mx-auto">
+              Questions? Feedback? We're here to help. Reach out to our team and we'll get back to you as soon as possible.
+            </p>
+          </div>
+      
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <!-- Contact Info -->
+            <div class="space-y-6">
+              <div>
+                <p class="text-[#0B132A] font-semibold mb-1">Email</p>
+                <p class="text-[#4F5665]">support@laslesvpn.com</p>
+              </div>
+              <div>
+                <p class="text-[#0B132A] font-semibold mb-1">Phone</p>
+                <p class="text-[#4F5665]">+1 (800) 555-LASLES</p>
+              </div>
+              <div>
+                <p class="text-[#0B132A] font-semibold mb-1">Address</p>
+                <p class="text-[#4F5665]">123 VPN Lane, San Francisco, CA</p>
+              </div>
+            </div>
+      
+            <!-- Contact Form -->
+            <form class="space-y-6">
+              <div>
+                <label class="block text-[#0B132A] font-medium mb-1">Full Name</label>
+                <input type="text" placeholder="Your name"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F53838]" />
+              </div>
+              <div>
+                <label class="block text-[#0B132A] font-medium mb-1">Email</label>
+                <input type="email" placeholder="you@example.com"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F53838]" />
+              </div>
+              <div>
+                <label class="block text-[#0B132A] font-medium mb-1">Message</label>
+                <textarea rows="4" placeholder="Your message..."
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F53838]"></textarea>
+              </div>
+              <button type="submit"
+                class="bg-[#3f1e63] text-white font-semibold px-6 py-3 rounded-lg hover:bg-purple-200 transition duration-200">
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+      
+
+    <!-- Footer Section -->
+    <footer class="bg-purple-900 text-white py-12">
+        <div class="max-w-[1440px] container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <!-- About Section -->
+            <div class="space-y-4">
+                <div class="flex items-center gap-2">
+                    <img src="./images/logo.png" class="h-8">
+                    <span class="text-xl font-bold">LaslesVPN</span>
+                </div>
+                <p class="text-gray-300 text-sm">
+                    Secure your online presence with our reliable VPN services. Privacy and security made simple.
+                </p>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="space-y-4">
+                <h3 class="font-bold text-lg">Quick Links</h3>
+                <ul class="space-y-2 text-gray-300">
+                    <li><a href="#home" class="hover:text-white">Home</a></li>
+                    <li><a href="#features" class="hover:text-white">Features</a></li>
+                    <li><a href="#pricing" class="hover:text-white">Pricing</a></li>
+                    <li><a href="#testimonials" class="hover:text-white">Testimonials</a></li>
+                </ul>
+            </div>
+
+            <!-- Legal -->
+            <div class="space-y-4">
+                <h3 class="font-bold text-lg">Legal</h3>
+                <ul class="space-y-2 text-gray-300">
+                    <li><a href="#" class="hover:text-white">Privacy Policy</a></li>
+                    <li><a href="#" class="hover:text-white">Terms of Service</a></li>
+                    <li><a href="#" class="hover:text-white">Cookie Policy</a></li>
+                </ul>
+            </div>
+
+            <!-- Social Media -->
+            <div class="space-y-4">
+                <h3 class="font-bold text-lg">Follow Us</h3>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-300 hover:text-white">
+                        <img src="./images/facebook.png" alt="Facebook" class="w-6 h-6">
+                    </a>
+                    <a href="#" class="text-gray-300 hover:text-white">
+                        <img src="./images/twitter.png" alt="Twitter" class="w-6 h-6">
+                    </a>
+                    <a href="#" class="text-gray-300 hover:text-white">
+                        <img src="./images/instagram.png" alt="Instagram" class="w-6 h-6">
+                    </a>
+                    
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright -->
+        <div class="border-t border-purple-800 mt-8 pt-8 text-center text-gray-300 text-sm">
+            © 2025 LaslesVPN. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- Add Swiper CSS and JS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="./js/app.js"></script>
+ <!-- AOS Script -->
+ <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+ <script>
+   AOS.init({
+     duration: 1000,
+     once: true
+   });
+ </script>
+ 
+
+    <!-- Sign In Modal -->
+    <div id="signinModal" class="fixed inset-0 z-50 hidden bg-black bg-opacity-50">
+      <div class="flex items-center justify-center min-h-screen">
+        <div class="bg-white rounded-lg shadow-xl w-full max-w-md p-8">
+          <div class="flex justify-between items-center mb-6">
+            <h3 class="text-2xl font-bold text-purple-900">Sign In</h3>
+            <button id="closeSignIn" class="text-gray-500 hover:text-gray-700">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+              </svg>
+            </button>
+          </div>
+          <form class="space-y-6">
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+              <input type="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+              <input type="password" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500">
+            </div>
+            <button type="submit" class="w-full bg-purple-900 text-white px-6 py-3 rounded-lg hover:bg-purple-700 transition duration-200">
+              Sign In
+            </button>
+            <p class="text-center text-gray-600">
+              Don't have an account? 
+              <button type="button" id="showSignUp" class="text-purple-900 hover:underline">Sign Up</button>
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sign Up Modal -->
+    <div id="signupModal" class="fixed inset-0 z-50 hidden bg-black bg-opacity-50">
+      <div class="flex items-center justify-center min-h-screen">
+        <div class="bg-white rounded-lg shadow-xl w-full max-w-md p-8">
+          <div class="flex justify-between items-center mb-6">
+            <h3 class="text-2xl font-bold text-purple-900">Sign Up</h3>
+            <button id="closeSignUp" class="text-gray-500 hover:text-gray-700">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+              </svg>
+            </button>
+          </div>
+          <form class="space-y-6">
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+              <input type="text" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+              <input type="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+              <input type="password" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">Confirm Password</label>
+              <input type="password" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500">
+            </div>
+            <button type="submit" class="w-full bg-purple-900 text-white px-6 py-3 rounded-lg hover:bg-purple-700 transition duration-200">
+              Create Account
+            </button>
+            <p class="text-center text-gray-600">
+              Already have an account? 
+              <button type="button" id="showSignIn" class="text-purple-900 hover:underline">Sign In</button>
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+
 </body>
 </html>
